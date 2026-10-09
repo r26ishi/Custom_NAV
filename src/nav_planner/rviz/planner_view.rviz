@@ -1,0 +1,239 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Map
+        - /Global Costmap
+        - /Global Planner
+        - /LaserScan
+        - /TF
+      Splitter Ratio: 0.5
+    Tree Height: 700
+
+  - Class: rviz_common/Views
+    Name: Views
+    Expanded:
+      - Current View
+    Splitter Ratio: 0.5
+
+Visualization Manager:
+  Class: ""
+  Displays:
+
+    # =========================================================
+    # MAP
+    # =========================================================
+
+    - Class: rviz_default_plugins/Map
+      Enabled: true
+      Name: Global Map
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Alpha: 0.5
+      Color Scheme: map
+      Draw Behind: false
+      Use Timestamp: false
+
+    # =========================================================
+    # GLOBAL COSTMAP
+    # =========================================================
+
+    - Class: rviz_default_plugins/Map
+      Enabled: true
+      Name: Global Costmap
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap
+      Alpha: 0.65
+      Color Scheme: costmap
+      Draw Behind: false
+      Use Timestamp: false
+
+    # =========================================================
+    # GLOBAL PLANNER PATH
+    # =========================================================
+
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: Global Planner
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+      Alpha: 1.0
+      Buffer Length: 1
+      Line Style: Lines
+      Line Width: 0.05
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.02
+      Pose Color: 255; 0; 0
+      Pose Style: None
+      Radius: 0.03
+      Shaft Length: 0.1
+      Shaft Radius: 0.01
+      Head Length: 0.1
+      Head Radius: 0.03
+
+    # =========================================================
+    # LASER SCAN
+    # =========================================================
+
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: true
+      Name: LaserScan
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /scan
+      Size (m): 0.05
+      Style: Points
+      Decay Time: 0
+      Use Fixed Frame: true
+
+    # =========================================================
+    # TF
+    # =========================================================
+
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+      Frame Timeout: 15
+      Marker Scale: 1.0
+      Show Axes: true
+      Show Names: true
+      Update Interval: 0
+
+    # =========================================================
+    # ROBOT MODEL
+    # =========================================================
+
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: Robot Model
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+
+    # =========================================================
+    # ROBOT FOOTPRINT
+    # =========================================================
+
+    - Class: rviz_default_plugins/Polygon
+      Enabled: true
+      Name: Robot Footprint
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/published_footprint
+      Line Style: Lines
+      Line Width: 0.03
+      Fill Color: 255; 255; 0
+      Fill Alpha: 0.15
+
+    # =========================================================
+    # GOAL POSE
+    # =========================================================
+
+    - Class: rviz_default_plugins/PoseWithCovarianceStamped
+      Enabled: true
+      Name: Initial Pose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+      Shape: Arrow
+      Color: 255; 25; 0
+      Alpha: 1.0
+
+    # =========================================================
+    # GRID
+    # =========================================================
+
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+      Cell Size: 1
+      Plane: XY
+      Plane Cell Count: 20
+      Line Style: Lines
+      Line Width: 0.03
+      Alpha: 0.5
+      Reference Frame: <Fixed Frame>
+
+  Enabled: true
+
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+
+  Name: root
+
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+
+    - Class: rviz_default_plugins/MoveCamera
+
+    - Class: rviz_default_plugins/Select
+
+    - Class: rviz_default_plugins/FocusCamera
+
+    - Class: rviz_default_plugins/Measure
+
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Angle: 0
+      Scale: 30
+      Target Frame: map
+      X: 0
+      Y: 0
+      Near Clip Distance: 0.01
+      Far Clip Distance: 1000
+
+Window Geometry:
+  Height: 900
+  Width: 1400
+  X: 100
+  Y: 50
