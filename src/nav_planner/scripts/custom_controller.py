@@ -108,7 +108,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'max_linear_velocity',
-            0.50
+            0.40
         )
 
         self.declare_parameter(
@@ -118,7 +118,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'max_angular_velocity',
-            1.50
+            0.40
         )
 
         # --------------------------------------------------------
@@ -127,12 +127,12 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'max_linear_acceleration',
-            0.50
+            0.40
         )
 
         self.declare_parameter(
             'max_angular_acceleration',
-            2.00
+            0.40
         )
 
         # --------------------------------------------------------
@@ -146,7 +146,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'goal_yaw_tolerance',
-            0.15
+            0.30
         )
 
         # --------------------------------------------------------

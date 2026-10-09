@@ -200,7 +200,7 @@ class AStarPlanner(Node):
         # TF
         # ============================================================
 
-        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_buffer = tf2_ros.Buffer(node=self)
 
         self.tf_listener = tf2_ros.TransformListener(
             self.tf_buffer,
@@ -628,11 +628,11 @@ class AStarPlanner(Node):
             transform = self.tf_buffer.lookup_transform(
                 self.global_frame,
                 self.robot_frame,
-                rclpy.time.Time()
+                rclpy.time.Time(),
+                timeout=rclpy.duration.Duration(seconds=0.2)
             )
 
             x = (transform.transform.translation.x)
-
             y = (transform.transform.translation.y)
 
             return x, y
