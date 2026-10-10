@@ -34,12 +34,6 @@ install(
 )
 
 install(PROGRAMS
-  scripts/navigator.py
-  scripts/navigator_2.py
-  scripts/navigator_3.py
-  scripts/navigator_4.py
-  scripts/navigator_5.py
-  scripts/navigator_final.py
   scripts/path_smoother.py
   scripts/discrete_path.py
   scripts/trajectory_controller.py
