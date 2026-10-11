@@ -195,7 +195,7 @@ class GlobalCostmapNode(Node):
         self.get_logger().info(
             'Received map from map_server'
         )
-
+        
         self.width = msg.info.width
         self.height = msg.info.height
         self.resolution = msg.info.resolution
@@ -403,26 +403,9 @@ class GlobalCostmapNode(Node):
                 #     )
                 #   + 1
 
-                cost = int(
-                    (INSCRIBED_INFLATED_OBSTACLE - 1)
-                    *
-                    math.exp(
-                        -self.cost_scaling_factor
-                        *
-                        (
-                            distance_m
-                            - self.robot_radius
-                        )
-                    )
-                ) + 1
+                cost = int( (INSCRIBED_INFLATED_OBSTACLE - 1) * math.exp( -self.cost_scaling_factor * ( distance_m - self.robot_radius ) ) ) + 1
 
-                cost = max(
-                    1,
-                    min(
-                        cost,
-                        INSCRIBED_INFLATED_OBSTACLE
-                    )
-                )
+                cost = max( 1, min( cost, INSCRIBED_INFLATED_OBSTACLE ) )
 
             # --------------------------------------------------------
             # Update cell
@@ -553,6 +536,8 @@ class GlobalCostmapNode(Node):
         static_msg = self.create_occupancy_grid(
             self.static_layer
         )
+        
+        #self.get_logger().info(f'static_layer: {self.static_layer}')
 
         self.static_pub.publish(static_msg)
 
@@ -563,6 +548,8 @@ class GlobalCostmapNode(Node):
         inflation_msg = self.create_occupancy_grid(
             self.inflation_layer
         )
+        
+        self.get_logger().info(f'inflation_layer: {self.inflation_layer}')
 
         self.inflation_pub.publish(inflation_msg)
 

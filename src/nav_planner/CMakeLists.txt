@@ -34,6 +34,7 @@ install(
 )
 
 install(PROGRAMS
+  scripts/navigator_final.py
   scripts/path_smoother.py
   scripts/discrete_path.py
   scripts/trajectory_controller.py
@@ -41,6 +42,7 @@ install(PROGRAMS
   scripts/trajectory_controller_3.py
   scripts/astar_planner.py
   scripts/astar_planner_2.py
+  scripts/astar_planner_smoothed.py
   scripts/global_costmap.py
   scripts/custom_controller.py
   

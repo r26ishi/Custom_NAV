@@ -80,7 +80,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'controller_frequency',
-            20.0
+            30.0
         )
 
         # --------------------------------------------------------
@@ -108,7 +108,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'max_linear_velocity',
-            0.40
+            0.60
         )
 
         self.declare_parameter(
@@ -127,7 +127,7 @@ class Nav2StyleController(Node):
 
         self.declare_parameter(
             'max_linear_acceleration',
-            0.40
+            0.60
         )
 
         self.declare_parameter(
